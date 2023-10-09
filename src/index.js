@@ -30,8 +30,6 @@ let page = 1;
 
 // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-axios.defaults.baseURL = 'https://pixabay.com/api';
-
 // const instance = axios.create({
 //   baseURL: 'https://pixabay.com/api',
 //   key: '39908765-01641b9876d1c1af0468ed447',
