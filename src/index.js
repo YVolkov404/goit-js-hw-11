@@ -26,6 +26,7 @@ const preLoadState = new PreLoadState({
 
 let searchQuery;
 let images;
+let page = 1;
 
 // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
@@ -33,16 +34,16 @@ const axios = require('axios').default;
 
 axios.defaults.baseURL = 'https://pixabay.com/api';
 
-const instance = axios.create({
-  baseURL: 'https://pixabay.com/api',
-  key: '39908765-01641b9876d1c1af0468ed447',
-  q: `${searchQuery}`,
-  image_type: 'photo',
-  orientation: 'horizontal',
-  safesearch: true,
-  page: 1,
-  per_page: 40,
-});
+// const instance = axios.create({
+//   baseURL: 'https://pixabay.com/api',
+//   key: '39908765-01641b9876d1c1af0468ed447',
+//   q: `${searchQuery}`,
+//   image_type: 'photo',
+//   orientation: 'horizontal',
+//   safesearch: true,
+//   page: 1,
+//   per_page: 40,
+// });
 
 // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
@@ -109,10 +110,11 @@ async function onSearchForm(e) {
     );
   }
 }
-controller.incrementPage();
+
 async function onloadMore(e) {
   try {
-    const response = await controller.getPage();
+    controller.incrementPage();
+    const response = await controller.getPage(searchQuery, page);
     const images = response.data.hits;
     const totalHits = response.data.totalHits;
 
@@ -132,16 +134,6 @@ async function onloadMore(e) {
 }
 
 // +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-
-// function incrementPage(page) {
-//   page += 1;
-//   return page;
-// }
-
-// function resetPage() {
-//   instance.page = 1;
-//   instance.per_page = 40;
-// }
 
 function clearPage() {
   gallery.innerHTML = '';
