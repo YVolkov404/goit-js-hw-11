@@ -30,8 +30,6 @@ let page = 1;
 
 // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-// const axios = require('axios').default;
-
 axios.defaults.baseURL = 'https://pixabay.com/api';
 
 // const instance = axios.create({
