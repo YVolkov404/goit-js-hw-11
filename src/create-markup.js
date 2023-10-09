@@ -1,5 +1,7 @@
 const gallery = document.querySelector('.gallery');
 
+// +++++++++++++++++++++++++++++++++++++++++++++++++++
+
 export function createMarkup(images) {
   const markup = images
     .map(image => {
