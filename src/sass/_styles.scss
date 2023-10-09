@@ -100,7 +100,11 @@ img {
   height: auto;
 }
 
-button.load-more {
+.load-more.is-hidden {
+  display: none;
+}
+
+.load-more {
   display: block;
   width: 300px;
   padding: 15px 0;

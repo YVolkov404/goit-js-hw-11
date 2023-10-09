@@ -13,7 +13,7 @@ export default class ApiService {
 
   // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-  fetchImages() {
+  async fetchImages() {
     return fetch(
       `${BASE_URL}/?key=${API_KEY}&q=${this.searchQuery}&${URL_OPTIONS}&page=${this.page}&per_page=${this.per_page}`
     )
@@ -25,7 +25,7 @@ export default class ApiService {
       })
       .then(images => {
         this.incrementPageAndPerPage();
-        return images.hits;
+        return images;
       });
   }
 
