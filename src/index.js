@@ -5,12 +5,15 @@ import { simpleLightboxOptions, notifyOptions } from './options';
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
 import { createMarkup } from './create-markup';
 import PreLoadState from './preload-state';
+import Controller from './controller';
 
 // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 const form = document.querySelector('form');
 const gallery = document.querySelector('.gallery');
 const loadMoreBtn = document.querySelector('.load-more');
+
+const controller = new Controller();
 
 const lightbox = new SimpleLightbox(
   '.gallery .photo-card a',
@@ -21,7 +24,7 @@ const preLoadState = new PreLoadState({
   selector: '.load-more',
 });
 
-let searchQuery = '';
+let searchQuery;
 let images;
 
 // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -74,7 +77,6 @@ async function onSearchForm(e) {
 
   clearPage();
   searchQuery = e.currentTarget.searchQuery.value.trim();
-  resetPage();
 
   form.reset();
   preLoadState.show();
@@ -88,6 +90,7 @@ async function onSearchForm(e) {
     return;
   }
 
+  controller.resetPage();
   try {
     const response = await fetchImages(searchQuery);
     const images = response.data.hits;
@@ -95,8 +98,6 @@ async function onSearchForm(e) {
     if (images.length === 0) {
       form.reset();
     }
-
-    incrementPageAndPerPage();
 
     createMarkup(images);
     lightbox.refresh();
@@ -108,14 +109,15 @@ async function onSearchForm(e) {
     );
   }
 }
-
+controller.incrementPage();
 async function onloadMore(e) {
   try {
-    const response = await fetchImages(searchQuery);
+    const response = await controller.getPage();
+    const images = response.data.hits;
     const totalHits = response.data.totalHits;
 
-    if (totalHits < instance.per_page) {
-      clearPage();
+    if (totalHits < 40) {
+      preLoadState.hide();
     }
 
     createMarkup(images);
@@ -131,15 +133,15 @@ async function onloadMore(e) {
 
 // +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-function incrementPageAndPerPage() {
-  instance.page += 1;
-  instance.per_page += 40;
-}
+// function incrementPage(page) {
+//   page += 1;
+//   return page;
+// }
 
-function resetPage() {
-  instance.page = 1;
-  instance.per_page = 40;
-}
+// function resetPage() {
+//   instance.page = 1;
+//   instance.per_page = 40;
+// }
 
 function clearPage() {
   gallery.innerHTML = '';
