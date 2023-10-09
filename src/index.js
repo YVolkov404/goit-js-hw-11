@@ -32,10 +32,6 @@ loadMoreBtn.addEventListener('click', onloadMore);
 
 //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-function clearPage() {
-  gallery.innerHTML = '';
-}
-
 async function onSearchForm(e) {
   e.preventDefault();
 
@@ -93,4 +89,8 @@ async function onloadMore(e) {
       notifyOptions
     );
   }
+}
+
+function clearPage() {
+  gallery.innerHTML = '';
 }
