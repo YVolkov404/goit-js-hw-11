@@ -26,7 +26,7 @@ const preLoadState = new PreLoadState({
 
 let searchQuery;
 let images;
-let page = 1;
+let page;
 
 // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
@@ -117,9 +117,8 @@ async function onloadMore(e) {
     const images = response.data.hits;
     const totalHits = response.data.totalHits;
 
-    if (totalHits / 40 < 40) {
+    if (totalHits / 40 < 8) {
       preLoadState.hide();
-      controller.resetPage();
       Notify.warning(
         "We're sorry, but you've reached the end of search results.",
         notifyOptions

@@ -3,7 +3,7 @@ import axios from 'axios';
 export default class Controller {
   constructor() {
     this.searchQuery = '';
-    this.page = 0;
+    this.page = 1;
   }
 
   async getPage(searchQuery, page) {
