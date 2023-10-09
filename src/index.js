@@ -48,6 +48,8 @@ loadMoreBtn.addEventListener('click', onloadMore);
 
 //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
+axios.defaults.baseURL = 'https://pixabay.com/api';
+
 async function fetchImages(searchQuery) {
   try {
     return await axios.get(`/`, {
