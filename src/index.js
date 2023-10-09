@@ -30,7 +30,7 @@ let page = 1;
 
 // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-const axios = require('axios').default;
+// const axios = require('axios').default;
 
 axios.defaults.baseURL = 'https://pixabay.com/api';
 
@@ -97,17 +97,18 @@ async function onSearchForm(e) {
     const images = response.data.hits;
 
     if (images.length === 0) {
+      Notify.warning(
+        'Sorry, there are no images matching your search query. Please try again',
+        notifyOptions
+      );
+      preLoadState.hide();
       form.reset();
     }
 
     createMarkup(images);
     lightbox.refresh();
   } catch (error) {
-    preLoadState.hide();
-    Notify.warning(
-      'Sorry, there are no images matching your search query. Please try again',
-      notifyOptions
-    );
+    console.log(error.message);
   }
 }
 
@@ -118,18 +119,19 @@ async function onloadMore(e) {
     const images = response.data.hits;
     const totalHits = response.data.totalHits;
 
-    if (totalHits < 40) {
+    if (totalHits / 40 < 40) {
       preLoadState.hide();
+      controller.resetPage();
+      Notify.warning(
+        "We're sorry, but you've reached the end of search results.",
+        notifyOptions
+      );
     }
 
     createMarkup(images);
     lightbox.refresh();
   } catch (error) {
-    preLoadState.hide();
-    Notify.warning(
-      "We're sorry, but you've reached the end of search results.",
-      notifyOptions
-    );
+    console.log(error.message);
   }
 }
 
