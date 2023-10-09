@@ -45,13 +45,13 @@ if(e.closeButton&&"function"!=typeof c&&(C='<span class="nx-close-button"><svg x
 if(e.useFontAwesome)v.innerHTML='<i style="color:'+u.fontAwesomeIconColor+"; font-size:"+e.fontAwesomeIconSize+';" class="nx-message-icon nx-message-icon-fa '+u.fontAwesomeClassName+" "+("shadow"===e.fontAwesomeIconStyle?"nx-message-icon-fa-shadow":"nx-message-icon-fa-basic")+'"></i><span class="nx-message nx-with-icon">'+s+"</span>"+(e.closeButton?C:"");else{var x="";n===o.Success?x='<svg class="nx-message-icon" xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 40 40"><g><path fill="'+u.notiflixIconColor+'" d="M20 0c11.03,0 20,8.97 20,20 0,11.03 -8.97,20 -20,20 -11.03,0 -20,-8.97 -20,-20 0,-11.03 8.97,-20 20,-20zm0 37.98c9.92,0 17.98,-8.06 17.98,-17.98 0,-9.92 -8.06,-17.98 -17.98,-17.98 -9.92,0 -17.98,8.06 -17.98,17.98 0,9.92 8.06,17.98 17.98,17.98zm-2.4 -13.29l11.52 -12.96c0.37,-0.41 1.01,-0.45 1.42,-0.08 0.42,0.37 0.46,1 0.09,1.42l-12.16 13.67c-0.19,0.22 -0.46,0.34 -0.75,0.34 -0.23,0 -0.45,-0.07 -0.63,-0.22l-7.6 -6.07c-0.43,-0.35 -0.5,-0.99 -0.16,-1.42 0.35,-0.43 0.99,-0.5 1.42,-0.16l6.85 5.48z"/></g></svg>':n===o.Failure?x='<svg class="nx-message-icon" xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 40 40"><g><path fill="'+u.notiflixIconColor+'" d="M20 0c11.03,0 20,8.97 20,20 0,11.03 -8.97,20 -20,20 -11.03,0 -20,-8.97 -20,-20 0,-11.03 8.97,-20 20,-20zm0 37.98c9.92,0 17.98,-8.06 17.98,-17.98 0,-9.92 -8.06,-17.98 -17.98,-17.98 -9.92,0 -17.98,8.06 -17.98,17.98 0,9.92 8.06,17.98 17.98,17.98zm1.42 -17.98l6.13 6.12c0.39,0.4 0.39,1.04 0,1.43 -0.19,0.19 -0.45,0.29 -0.71,0.29 -0.27,0 -0.53,-0.1 -0.72,-0.29l-6.12 -6.13 -6.13 6.13c-0.19,0.19 -0.44,0.29 -0.71,0.29 -0.27,0 -0.52,-0.1 -0.71,-0.29 -0.39,-0.39 -0.39,-1.03 0,-1.43l6.13 -6.12 -6.13 -6.13c-0.39,-0.39 -0.39,-1.03 0,-1.42 0.39,-0.39 1.03,-0.39 1.42,0l6.13 6.12 6.12 -6.12c0.4,-0.39 1.04,-0.39 1.43,0 0.39,0.39 0.39,1.03 0,1.42l-6.13 6.13z"/></g></svg>':n===o.Warning?x='<svg class="nx-message-icon" xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 40 40"><g><path fill="'+u.notiflixIconColor+'" d="M21.91 3.48l17.8 30.89c0.84,1.46 -0.23,3.25 -1.91,3.25l-35.6 0c-1.68,0 -2.75,-1.79 -1.91,-3.25l17.8 -30.89c0.85,-1.47 2.97,-1.47 3.82,0zm16.15 31.84l-17.8 -30.89c-0.11,-0.2 -0.41,-0.2 -0.52,0l-17.8 30.89c-0.12,0.2 0.05,0.4 0.26,0.4l35.6 0c0.21,0 0.38,-0.2 0.26,-0.4zm-19.01 -4.12l0 -1.05c0,-0.53 0.42,-0.95 0.95,-0.95 0.53,0 0.95,0.42 0.95,0.95l0 1.05c0,0.53 -0.42,0.95 -0.95,0.95 -0.53,0 -0.95,-0.42 -0.95,-0.95zm0 -4.66l0 -13.39c0,-0.52 0.42,-0.95 0.95,-0.95 0.53,0 0.95,0.43 0.95,0.95l0 13.39c0,0.53 -0.42,0.96 -0.95,0.96 -0.53,0 -0.95,-0.43 -0.95,-0.96z"/></g></svg>':n===o.Info&&(x='<svg class="nx-message-icon" xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 40 40"><g><path fill="'+u.notiflixIconColor+'" d="M20 0c11.03,0 20,8.97 20,20 0,11.03 -8.97,20 -20,20 -11.03,0 -20,-8.97 -20,-20 0,-11.03 8.97,-20 20,-20zm0 37.98c9.92,0 17.98,-8.06 17.98,-17.98 0,-9.92 -8.06,-17.98 -17.98,-17.98 -9.92,0 -17.98,8.06 -17.98,17.98 0,9.92 8.06,17.98 17.98,17.98zm-0.99 -23.3c0,-0.54 0.44,-0.98 0.99,-0.98 0.55,0 0.99,0.44 0.99,0.98l0 15.86c0,0.55 -0.44,0.99 -0.99,0.99 -0.55,0 -0.99,-0.44 -0.99,-0.99l0 -15.86zm0 -5.22c0,-0.55 0.44,-0.99 0.99,-0.99 0.55,0 0.99,0.44 0.99,0.99l0 1.09c0,0.54 -0.44,0.99 -0.99,0.99 -0.55,0 -0.99,-0.45 -0.99,-0.99l0 -1.09z"/></g></svg>'),v.innerHTML=x+'<span class="nx-message nx-with-icon">'+s+"</span>"+(e.closeButton?C:"")}}else v.innerHTML='<span class="nx-message">'+s+"</span>"+(e.closeButton?C:"");// use icon: end
 // notify content: end
 // notify append or prepend: begin
-if("left-bottom"===e.position||"right-bottom"===e.position){var b=t.document.getElementById(i.wrapID);b.insertBefore(v,b.firstChild)}else t.document.getElementById(i.wrapID).appendChild(v);// notify append or prepend: end
+if("left-bottom"===e.position||"right-bottom"===e.position){var w=t.document.getElementById(i.wrapID);w.insertBefore(v,w.firstChild)}else t.document.getElementById(i.wrapID).appendChild(v);// notify append or prepend: end
 // remove by timeout or click: begin
-var w=t.document.getElementById(v.id);if(w){// hide notify elm and hide overlay: begin
-var N,O,I=function(){w.classList.add("nx-remove");var e=t.document.getElementById(i.overlayID);e&&g.childElementCount<=0&&e.classList.add("nx-remove"),clearTimeout(N)},S=function(){if(w&&null!==w.parentNode&&w.parentNode.removeChild(w),g.childElementCount<=0&&null!==g.parentNode){g.parentNode.removeChild(g);var e=t.document.getElementById(i.overlayID);e&&null!==e.parentNode&&e.parentNode.removeChild(e)}clearTimeout(O)};// if callbackOrOptions or click to close: end
+var b=t.document.getElementById(v.id);if(b){// hide notify elm and hide overlay: begin
+var N,O,I=function(){b.classList.add("nx-remove");var e=t.document.getElementById(i.overlayID);e&&g.childElementCount<=0&&e.classList.add("nx-remove"),clearTimeout(N)},S=function(){if(b&&null!==b.parentNode&&b.parentNode.removeChild(b),g.childElementCount<=0&&null!==g.parentNode){g.parentNode.removeChild(g);var e=t.document.getElementById(i.overlayID);e&&null!==e.parentNode&&e.parentNode.removeChild(e)}clearTimeout(O)};// if callbackOrOptions or click to close: end
 // else auto remove: begin
-if(e.closeButton&&"function"!=typeof c&&t.document.getElementById(v.id).querySelector("span.nx-close-button").addEventListener("click",function(){I();var t=setTimeout(function(){S(),clearTimeout(t)},e.cssAnimationDuration)}),("function"==typeof c||e.clickToClose)&&w.addEventListener("click",function(){"function"==typeof c&&c(),I();var t=setTimeout(function(){S(),clearTimeout(t)},e.cssAnimationDuration)}),!e.closeButton&&"function"!=typeof c){// auto remove: begin
-var k=function(){N=setTimeout(function(){I()},e.timeout),O=setTimeout(function(){S()},e.timeout+e.cssAnimationDuration)};k(),e.pauseOnHover&&(w.addEventListener("mouseenter",function(){w.classList.add("nx-paused"),clearTimeout(N),clearTimeout(O)}),w.addEventListener("mouseleave",function(){w.classList.remove("nx-paused"),k()}));// pause auto remove: end
+if(e.closeButton&&"function"!=typeof c&&t.document.getElementById(v.id).querySelector("span.nx-close-button").addEventListener("click",function(){I();var t=setTimeout(function(){S(),clearTimeout(t)},e.cssAnimationDuration)}),("function"==typeof c||e.clickToClose)&&b.addEventListener("click",function(){"function"==typeof c&&c(),I();var t=setTimeout(function(){S(),clearTimeout(t)},e.cssAnimationDuration)}),!e.closeButton&&"function"!=typeof c){// auto remove: begin
+var k=function(){N=setTimeout(function(){I()},e.timeout),O=setTimeout(function(){S()},e.timeout+e.cssAnimationDuration)};k(),e.pauseOnHover&&(b.addEventListener("mouseenter",function(){b.classList.add("nx-paused"),clearTimeout(N),clearTimeout(O)}),b.addEventListener("mouseleave",function(){b.classList.remove("nx-paused"),k()}));// pause auto remove: end
 }// else auto remove: end
 }// remove by timeout or click: end
 // notify - show only the last one: begin
@@ -66,36 +66,36 @@ if(!e)return n("You have to initialize the Notify module before call Merge funct
 success:function(t,e,i){f(o.Success,t,e,i)},// Failure
 failure:function(t,e,i){f(o.Failure,t,e,i)},// Warning
 warning:function(t,e,i){f(o.Warning,t,e,i)},// Info
-info:function(t,e,i){f(o.Info,t,e,i)}}};return"object"==typeof t.Notiflix?r(!0,t.Notiflix,{Notify:m.Notify}):{Notify:m.Notify}},"function"==typeof define&&define.amd?define([],function(){return e(t)}):"object"==typeof m?m=e(t):t.Notiflix=e(t);// ++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-const p=document.querySelector("form"),h=document.querySelector(".gallery"),u=document.querySelector(".load-more"),g=new class{constructor(){this.searchQuery="",this.page=1,this.per_page=40}// ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-fetchImages(){return fetch(`https://pixabay.com/api/?key=39908765-01641b9876d1c1af0468ed447&q=${this.searchQuery}&image_type=photo&orientation=horizontal&safesearch=true&page=${this.page}&per_page=${this.per_page}`).then(t=>{if(!t.ok)throw Error(t.status);return t.json()}).then(t=>(this.incrementPageAndPerPage(),t.hits))}// +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-incrementPageAndPerPage(){this.page+=1,this.per_page+=40}resetPage(){this.page=1,this.per_page=40}// +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-get query(){return this.searchQuery}set query(t){this.searchQuery=t}},y=new(i&&i.__esModule?i.default:i)(".gallery .photo-card a",{showCounter:!1,docClose:!1,//----------------------
-captionDelay:250,captionsData:"alt"});// ++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-function v(t){let e=t.map(t=>`<div class="photo-card">
-          <a href="${t.largeImageURL}">
-            <img src="${t.webformatURL}" alt="${t.tags}" loading="lazy" />
+info:function(t,e,i){f(o.Info,t,e,i)}}};return"object"==typeof t.Notiflix?r(!0,t.Notiflix,{Notify:m.Notify}):{Notify:m.Notify}},"function"==typeof define&&define.amd?define([],function(){return e(t)}):"object"==typeof m?m=e(t):t.Notiflix=e(t);const p=document.querySelector(".gallery");function h(t){let e=t.map(t=>{let{webformatURL:e,largeImageURL:o,tags:i,likes:n,views:a,comments:s,downloads:r}=t;return`<div class="photo-card">
+          <a href="${o}">
+            <img src="${e}" alt="${i}" loading="lazy" />
           </a>
           <div class="info">
-              <p class="info-item">
-                <b>Likes</b>
-                ${t.likes}
-              </p>
-              <p class="info-item">
-                <b>Views</b>
-                ${t.views}
-              </p>
-              <p class="info-item">
-                <b>Comments</b>
-                ${t.comments}
-              </p>
-              <p class="info-item">
-                <b>Downloads</b>
-                ${t.downloads}
-              </p>
+            <p class="info-item">
+              <b>Likes</b>
+              ${n}
+            </p>
+            <p class="info-item">
+              <b>Views</b>
+              ${a}
+            </p>
+            <p class="info-item">
+              <b>Comments</b>
+              ${s}
+            </p>
+            <p class="info-item">
+              <b>Downloads</b>
+              ${r}
+            </p>
          </div>
-      </div>`).join("");h.insertAdjacentHTML("beforeend",e)}//# sourceMappingURL=index.e62a32c9.js.map
+      </div>`}).join("");p.insertAdjacentHTML("beforeend",e);let{height:o}=document.querySelector(".gallery").firstElementChild.getBoundingClientRect();window.scrollBy({top:2*o,behavior:"smooth"})}// ++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+const u=document.querySelector("form"),g=document.querySelector(".gallery"),y=document.querySelector(".load-more"),v=new class{constructor(){this.searchQuery="",this.page=1,this.per_page=40}// ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+async fetchImages(){return fetch(`https://pixabay.com/api/?key=39908765-01641b9876d1c1af0468ed447&q=${this.searchQuery}&image_type=photo&orientation=horizontal&safesearch=true&page=${this.page}&per_page=${this.per_page}`).then(t=>{if(!t.ok)throw Error(t.status);return t.json()}).then(t=>(this.incrementPageAndPerPage(),t))}// +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+incrementPageAndPerPage(){this.page+=1,this.per_page+=40}resetPage(){this.page=1,this.per_page=40}// +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+get query(){return this.searchQuery}set query(t){this.searchQuery=t}},C=new(i&&i.__esModule?i.default:i)(".gallery .photo-card a",{showCounter:!1,docClose:!1,//----------------------
+captionDelay:250,captionsData:"alt"}),x=new class{constructor({selector:t,hidden:e=!0}){this.refs=this.getRefs(t),e&&this.hide()}getRefs(t){let e={};return e.loadMoreBtn=document.querySelector(".load-more"),e}show(){this.refs.loadMoreBtn.classList.remove("is-hidden")}hide(){this.refs.loadMoreBtn.classList.add("is-hidden")}}({selector:".load-more"});//+++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+function w(){g.innerHTML=""}async function b(t){if(t.preventDefault(),w(),v.query=t.currentTarget.elements.searchQuery.value.trim(),u.reset(),x.show(),""===v.query){x.hide(),(0,m.Notify).warning("Please type your query in the input field for receiving search result",f);return}try{let t=await v.fetchImages(),e=t.hits;0===e.length&&u.reset(),h(e),C.refresh()}catch{x.hide(),(0,m.Notify).warning("Sorry, there are no images matching your search query. Please try again",f)}}// +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+async function N(t){try{let t=await v.fetchImages(),e=t.hits,o=t.totalHits;o<v.per_page&&w(),h(e),C.refresh()}catch{x.hide(),(0,m.Notify).warning("We're sorry, but you've reached the end of search results.",f)}}//# sourceMappingURL=index.945f014c.js.map
 // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-p.addEventListener("submit",//+++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-function(t){t.preventDefault(),h.innerHTML="",g.query=t.currentTarget.elements.searchQuery.value,g.resetPage(),g.fetchImages().then(t=>{v(t),y.refresh()}).catch(t=>{(0,m.Notify).warning("Sorry, there are no images matching your search query. Please try again",f)}).finally(p.reset())}),u.addEventListener("click",function(t){g.fetchImages().then(v),y.refresh()});
-//# sourceMappingURL=index.e62a32c9.js.map
+u.addEventListener("submit",b),y.addEventListener("click",N);
+//# sourceMappingURL=index.945f014c.js.map
