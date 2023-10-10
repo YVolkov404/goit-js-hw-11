@@ -14,3 +14,13 @@ export const notifyOptions = {
   fontSize: '16px',
   clickToClose: true,
 };
+
+export const aosOption = {
+  disable: false,
+  startEvent: 'scroll',
+  duration: 800,
+  easing: 'ease-in-out-quad',
+  once: true,
+  mirror: false,
+  anchorPlacement: 'top-bottom',
+};

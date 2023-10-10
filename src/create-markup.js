@@ -14,7 +14,7 @@ export function createMarkup(images) {
         comments,
         downloads,
       } = image;
-      return `<div class="photo-card">
+      return `<div class="photo-card" data-aos="fade-up">
           <a href="${largeImageURL}">
             <img src="${webformatURL}" alt="${tags}" loading="lazy" />
           </a>

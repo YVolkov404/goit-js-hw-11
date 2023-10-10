@@ -1,9 +1,12 @@
-import axios from 'axios';
+import AOS from 'aos';
+import aosOption from 'aos';
+import 'aos/dist/aos.css';
 import SimpleLightbox from 'simplelightbox';
 import 'simplelightbox/dist/simple-lightbox.min.css';
 import { simpleLightboxOptions, notifyOptions } from './options';
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
 import { createMarkup } from './create-markup';
+import { fetchImages } from './fetch-images';
 import PreLoadState from './preload-state';
 import Controller from './controller';
 
@@ -12,6 +15,10 @@ import Controller from './controller';
 const form = document.querySelector('form');
 const gallery = document.querySelector('.gallery');
 const loadMoreBtn = document.querySelector('.load-more');
+
+// ++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+AOS.init(aosOption);
 
 const controller = new Controller();
 
@@ -25,21 +32,6 @@ const preLoadState = new PreLoadState({
 });
 
 let searchQuery;
-let images;
-let page;
-
-// ++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-
-// const instance = axios.create({
-//   baseURL: 'https://pixabay.com/api',
-//   key: '39908765-01641b9876d1c1af0468ed447',
-//   q: `${searchQuery}`,
-//   image_type: 'photo',
-//   orientation: 'horizontal',
-//   safesearch: true,
-//   page: 1,
-//   per_page: 40,
-// });
 
 // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
@@ -48,48 +40,28 @@ loadMoreBtn.addEventListener('click', onloadMore);
 
 //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-axios.defaults.baseURL = 'https://pixabay.com/api';
-
-async function fetchImages(searchQuery) {
-  try {
-    return await axios.get(`/`, {
-      params: {
-        baseURL: 'https://pixabay.com/api',
-        key: '39908765-01641b9876d1c1af0468ed447',
-        q: `${searchQuery}`,
-        image_type: 'photo',
-        orientation: 'horizontal',
-        safesearch: true,
-        page: 1,
-        per_page: 40,
-      },
-    });
-  } catch (error) {
-    console.log(error);
-  }
-}
-
-// +++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-
 async function onSearchForm(e) {
   e.preventDefault();
-
   clearPage();
-  searchQuery = e.currentTarget.searchQuery.value.trim();
 
+  searchQuery = e.currentTarget.searchQuery.value.trim();
   form.reset();
+
   preLoadState.show();
 
   if (searchQuery === '') {
-    preLoadState.hide();
     Notify.warning(
       'Please type your query in the input field for receiving search result',
       notifyOptions
     );
+
+    preLoadState.hide();
+    form.reset();
     return;
   }
 
   controller.resetPage();
+
   try {
     const response = await fetchImages(searchQuery);
     const images = response.data.hits;
@@ -99,16 +71,20 @@ async function onSearchForm(e) {
         'Sorry, there are no images matching your search query. Please try again',
         notifyOptions
       );
+
       preLoadState.hide();
       form.reset();
     }
 
     createMarkup(images);
+
     lightbox.refresh();
   } catch (error) {
     console.log(error.message);
   }
 }
+
+let page = 1;
 
 async function onloadMore(e) {
   try {
@@ -117,12 +93,13 @@ async function onloadMore(e) {
     const images = response.data.hits;
     const totalHits = response.data.totalHits;
 
-    if (totalHits / 40 < 8) {
-      preLoadState.hide();
+    if (totalHits / 80 > images.length) {
       Notify.warning(
         "We're sorry, but you've reached the end of search results.",
         notifyOptions
       );
+
+      preLoadState.hide();
     }
 
     createMarkup(images);
